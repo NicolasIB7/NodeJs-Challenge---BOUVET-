@@ -122,7 +122,9 @@ En este apartado, comentaré algunas mejoras y consideraciones adicionales para 
 
 - **Agregar testing**: Es fundamental que nuestro proyecto posea el apartado de testing. Probar funcionalidades especificas o testear end to end utilizando heeramientas como Jest.
 
-Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero me parecía correcto nombrar como mejoraría y ampliaria la aplicación.
 
 - - **Agregar documentación**: Si bien existe este README, es crucial documentar a detalle toda la API, con SWAGGER por ejemplo, detallando qué función realiza cada endpoint, que datos se le deben pasar, arquitectura utilizada y demás información importante que hace que otra persona que tenga que modificar esto pueda leerlo y entenderlo.
 
+
+
+Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero me parecía correcto nombrar como mejoraría y ampliaria la aplicación.
