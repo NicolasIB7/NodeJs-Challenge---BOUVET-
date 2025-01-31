@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, ForeignKey, HasMany } from "sequelize-typescript";
+import { Table, Column, Model, DataType, ForeignKey, HasMany, BelongsTo } from "sequelize-typescript";
 import { TvShow } from "./TvShow.model";
 import { Episode } from "./Episode.model";
 
@@ -17,6 +17,9 @@ export class Season extends Model {
     allowNull: false,
   })
   tvShowId!: number;
+
+  @BelongsTo(() => TvShow)  
+  tvShow!: TvShow;
 
   @Column({
     type: DataType.STRING,

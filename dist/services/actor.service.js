@@ -15,7 +15,6 @@ const addActor = async (data) => {
             lastName,
             birthDate,
         });
-        PageTransitionEvent;
         return newActor;
     }
     catch (error) {

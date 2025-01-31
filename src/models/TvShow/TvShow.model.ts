@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, ForeignKey, HasMany, BelongsToMany } from "sequelize-typescript";
+import { Table, Column, Model, DataType, ForeignKey, HasMany, BelongsToMany, BelongsTo } from "sequelize-typescript";
 import { Actor } from "../Actor.model";
 import { Director } from "../Director.model";
 import { Season } from "./Season.model";
@@ -24,6 +24,9 @@ export class TvShow extends Model {
     allowNull: false,
   })
   directorId!: number;
+
+  @BelongsTo(() => Director)  
+  director!: Director;
 
   @BelongsToMany(() => Actor, "TvShowActors", "tvShowId", "actorId")
   actors!: Actor[];

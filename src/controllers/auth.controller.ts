@@ -1,20 +1,17 @@
 import db from "../config/db";
 import { Response, Request } from "express";
 import dotenv from "dotenv";
-import Client from "../models/Client.model";
+
 import {
   loginTokenService,
   verifyRefreshToken,
   ClientDataLogin,
-  ClientData
 } from "../services/auth.service";
 dotenv.config();
 
-
-export const register = async (data:any) => {
+export const register = async (data: any) => {
   try {
     const response = await db.models.Client.create(data);
-
 
     return response;
   } catch (error) {

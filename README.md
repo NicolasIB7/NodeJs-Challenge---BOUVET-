@@ -1,64 +1,53 @@
-# OrderToB - API RESTful Node.js
+# OrderToB - RESTful API Node.js
 
 <p align="center">
   <a href="https://ordertob.com/" target="blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_4fNOm7OS4aGfHPvNE_taRPKIUuQ6ID4fYg&s" width="120" alt="ordertob Logo" /></a>
 </p>
 
-## Introducción 
+## Introduction
 
- El objetivo de este proyecto es realizar una REST API acerca de la obtención de datos de peliculas y shows de tv con información relevante acerca de ellos como los actores, el director a cargo, etc.
- Se utilizará la protección de rutas mediante JWT. 
+The goal of this project is to create a REST API for fetching data on movies and TV shows, including relevant information such as actors, directors, etc. Route protection will be implemented using JWT.
 
-## Características principales:
+## Main Features:
 
-#### Autenticación JWT Token
-Se podrá loguear con credenciales estáticas, que primero validará el usuario y contraseña para luego entregar un token que será utilizado para acceder e interactuar con los demás endpoints.
+#### JWT Token Authentication
+Users will be able to log in with credentials, where the system will first validate the username and password, then provide a token that will be used to access and interact with the other endpoints.
 
-#### Persistencia de datos
-El sistema persistirá los datos en una base de datos relacional como postgress utilizando un ORM para facilitar y estructurar de mejor manera los modelos.
+#### Data Persistence
+The system will persist data in a relational database like PostgreSQL, using an ORM to better structure and organize the models.
 
-#### Gestionar tareas
-El sistema permitirá que una vez autenticado poder acceder al listado de peliculas asi como también poder traernos información acerca de un episodio especifo de un show de tv. También poder crear o añadir un actor.
+#### Task Management
+Once authenticated, the system will allow users to access a movie list, retrieve specific episode information from a TV show, and also add or create actors.
 
+## Description
 
-## Descripción
+The API was developed with a monolithic architecture and a hexagonal architecture pattern.
 
-La API fue desarrollada con una arquitectura monolitica y con estructura de archivos con arquitectura por capas.
+Postgres was chosen as the database for this project. Although it's a small-scale application, there are various relationships between entities, which makes a relational database the best option. This choice will allow for better organization and clearer structure.
 
-Se ha decidido utilizar Postgres como base de datos para este proyecto. Aunque es de pequeña escala, considero que hay diversas relaciones existentes, lo que hace que una base de datos relacional sea la opción más adecuada. Con esta elección, se logrará una mejor organización, permitiendo establecer una estructura clara..
+The main features and components of the design are as follows:
 
-Las principales características y componentes del diseño son los siguientes:
+1) **Use of Data Models**: Data models are used for entities such as Actors, Movies, Directors, and TV Shows.
 
-1) Utilización de modelos de datos: Se utilizan modelos de datos para las entidades como Actores, peliculas, directores y tv shows.
+2) **Use of Endpoints**: Specific endpoints are used for each functionality, allowing the retrieval of the necessary information from the database.
 
-2) Utilización de endpoints: Se utilizan endpoints específicos para cada funcionalidad, lo que permite obtener la información necesaria de la base de datos.
+## Technologies Used
 
+**Main Language**: Typescript
 
+**Runtime**: Node.js
 
+**Framework**: Native Node.js + Express.js
 
-## Tecnologías utilizadas
+**Database**: PostgreSQL (Relational Database)
 
-**Lenguaje principal**: Typescript 
+**Library**: Sequelize
 
+## Running and Using the API
 
-**Entorno de ejecución**: Node.js 
+Below are the steps to set up the server and use the RESTful API:
 
-
-**Framework**: Nativo Node.js + Express.js 
-
-
-**Base de datos**: Postgres (BDD relacional) 
-
-
-**Biblioteca**: Sequelize
-
-
-
-## Ejecución y uso de la API
-
-A continuacion se detallaran los pasos para lograr levantar el servidor y utilizar la API restful:
-
-Antes que todo, se deberá crear un archivo .env con las variables de entornos necesarios para la ejecución del proyecto.
+Before everything, you will need to create a `.env` file with the necessary environment variables for running the project.
 
 `DATABASE_HOST=`
 
@@ -70,61 +59,51 @@ Antes que todo, se deberá crear un archivo .env con las variables de entornos n
 
 `DATABASE_NAME=`
 
+### Locally
 
-### Localmente
+1. Open the terminal or command line on your computer.
 
-1. Abre la terminal o línea de comandos en tu computadora.
+2. Navigate to the location where you want to clone the repository using the `cd` command (e.g., `cd folder/destination`).
 
-2. Navega a la ubicación donde deseas clonar el repositorio utilizando el comando `cd` (ejemplo: `cd carpeta/destino`).
-
-3. Clona el repositorio ejecutando el siguiente comando:
-        git clone <URL_DEL_REPOSITORIO>
+3. Clone the repository by executing the following command:
+        git clone <REPOSITORY_URL>
     
-    Reemplaza `<URL_DEL_REPOSITORIO>` por la URL del repositorio en GitHub.
+    Replace `<REPOSITORY_URL>` with the URL of the repository on GitHub.
 
-4. Una vez que el repositorio se haya clonado correctamente, navega al directorio del proyecto usando `cd` (ejemplo: `cd nombre_del_proyecto`).
+4. Once the repository is cloned successfully, navigate to the project directory using `cd` (e.g., `cd project_name`).
 
-5. Instala las dependencias del proyecto ejecutando el siguiente comando:
+5. Install the project's dependencies by running the following command:
 
         `npm install`
 
-    Esto instalará todas las dependencias definidas en el archivo `package.json`.
+    This will install all the dependencies defined in the `package.json` file.
 
-6. Asegúrate de tener una instancia de postgres en ejecución. Puedes instalar PGadmin y ejecutar un servidor de postgres.
+6. Ensure that you have a running instance of PostgreSQL. You can install PGadmin and run a PostgreSQL server.
 
-7. Configura la conexión a la base de datos, deberás crear un archivo `.env` y rellenar los datos necesarios para la conexión.
+7. Configure the database connection by creating a `.env` file and filling in the necessary data for the connection.
 
-8. Inicia el servidor ejecutando uno de los siguientes comandos:
+8. Start the server by running one of the following commands:
 
-    - `npm start`: para iniciar el servidor con Express.
+    - `npm start`: to start the server with Express.
 
-        Esto iniciará el servidor y estará listo para recibir solicitudes en el puerto especificado.
+        This will start the server and it will be ready to receive requests on the specified port.
 
-9. Ahora puedes comenzar a realizar solicitudes HTTP a los diferentes endpoints utilizando herramientas como Postman o Insomnia. Por ejemplo:
+9. Now you can start making HTTP requests to the different endpoints using tools like Postman or Insomnia. For example:
 
-        `http://localhost:3000/<ENDPOINT_ESPECIFICO>`
+        `http://localhost:3001/<SPECIFIC_ENDPOINT>`
 
+You are now ready to clone the repository, set up the server, and use the API locally!
 
-¡Ahora estás listo para clonar el repositorio, configurar el servidor y utilizar la API localmente!
+## Important Notes - Things to Highlight
 
+In this section, I will comment on some improvements and additional considerations for the project. While many additional features could be implemented, I will focus on what I would have added to improve the requested service.
 
+- **Add Missing Endpoints**: For full functionality, it would be ideal to add the complete CRUD, meaning for each model or entity, you could establish full CRUD operations. For example, updating movies, adding new ones, deleting actors with cascading deletions, etc.
 
-## Aclaraciones importantes - cosas a destacar
+- **Add Docker**: To avoid issues running the project locally on different machines, it would be ideal to add Docker to containerize the project.
 
-En este apartado, comentaré algunas mejoras y consideraciones adicionales para el proyecto. Si bien obviamente se pueden implementar muchas cosas adicionales, me limitaré a comentar lo que hubiese agregado para mejorar las funcionalidades del servicio pedido.
+- **Add Testing**: It's essential that our project has a testing section. Testing specific functionalities or end-to-end tests using tools like Jest is a must.
 
+- **Add Documentation**: While this README exists, it's crucial to document the entire API in detail, with something like SWAGGER. This should describe what each endpoint does, what data needs to be passed, the architecture used, and other important information so that someone else who needs to modify this can read and understand it.
 
-- **Agregar endpoints faltantes**: Para una funcionalidad completa, sería correcto agregar la totalidad del CRUD, es decir por cada modelo o entidad poder establecer el CRUD completo. Por ejemplo, actualizar peliculas, agregar las mismas, eliminar actores con una eliminación en cascada, etc.
-
-
-- **Agregar Docker**: Para evitar problemas al ejecutar el proyecto localmente en distintas computadoras, lo idea sería agregar Docker para contenerizar el proyecto. 
-
-
-- **Agregar testing**: Es fundamental que nuestro proyecto posea el apartado de testing. Probar funcionalidades especificas o testear end to end utilizando heeramientas como Jest.
-
-
-- - **Agregar documentación**: Si bien existe este README, es crucial documentar a detalle toda la API, con SWAGGER por ejemplo, detallando qué función realiza cada endpoint, que datos se le deben pasar, arquitectura utilizada y demás información importante que hace que otra persona que tenga que modificar esto pueda leerlo y entenderlo.
-
-
-
-Cada una de ellas no se realizaron solamente por una cuestion de tiempos, pero me parecía correcto nombrar como mejoraría y ampliaria la aplicación.
+Each of these suggestions was not implemented solely due to time constraints, but it seemed important to mention how I would improve and expand the application.

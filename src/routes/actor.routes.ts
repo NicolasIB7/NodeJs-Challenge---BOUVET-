@@ -4,6 +4,6 @@ import { actor } from "../controllers/actor.controller";
 
 const router = Router();
 
-router.post("/actor", requireToken, actor);
+router.post("/", requireToken, actor);
 
 export { router as actorRouter };

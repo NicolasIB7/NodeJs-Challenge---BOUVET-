@@ -4,9 +4,6 @@ import {
   validatorRegister,
   validatorLogin,
 } from "../middlewares/validators.middleware";
-// import { validatorResultError } from "../middlewares/validatorResultError.middleware";
-
-// var jwt = require('jsonwebtoken');
 
 const router = Router();
 

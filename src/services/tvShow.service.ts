@@ -1,16 +1,34 @@
 import db from "../config/db";
-import { Director } from "../models/Director.model";
-import { TvShow } from "../models/TvShow/TvShow.model";
 
-export const findTvShow = async (id: string) => {
+export const findEpisode = async (
+  tvShowId: string,
+  seasonId: string,
+  episodeId: string
+) => {
   try {
     const episode = await db.models.Episode.findOne({
-      where: { id },
-      include: [{ model: Director }, { model: TvShow }],
+      where: { id: episodeId },
+      include: [
+        {
+          model: db.models.Season,
+          where: { id: seasonId },
+          include: [
+            {
+              model: db.models.TvShow,
+              where: { id: tvShowId },
+              include: [
+                {
+                  model: db.models.Director,
+                },
+              ],
+            },
+          ],
+        },
+      ],
     });
 
     return episode;
-  } catch (error: any) {
+  } catch (error) {
     throw error;
   }
 };

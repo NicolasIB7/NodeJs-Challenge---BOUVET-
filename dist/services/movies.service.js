@@ -5,12 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findAllMovies = void 0;
 const db_1 = __importDefault(require("../config/db"));
-const Actor_model_1 = require("../models/Actor.model");
-const Director_model_1 = require("../models/Director.model");
-const findAllMovies = async () => {
+const sequelize_1 = require("sequelize");
+const findAllMovies = async (filters) => {
     try {
+        const sortBy = filters.sortBy === 'createdAt' ? 'createdAt' : 'createdAt';
+        const sortOrder = filters.sortOrder === 'ASC' ? 'ASC' : 'DESC';
         const movies = await db_1.default.models.Movie.findAll({
-            include: [{ model: Director_model_1.Director }, { model: Actor_model_1.Actor }],
+            where: filters.genre
+                ? { genre: { [sequelize_1.Op.iLike]: `%${filters.genre}%` } }
+                : {},
+            order: [[sortBy, sortOrder]],
         });
         return movies;
     }

@@ -33,6 +33,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Season.prototype, "tvShowId", void 0);
 __decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => TvShow_model_1.TvShow),
+    __metadata("design:type", TvShow_model_1.TvShow)
+], Season.prototype, "tvShow", void 0);
+__decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
         allowNull: false,

@@ -1,16 +1,22 @@
-import { findAllMovies } from "../services/movies.service";
 import { Request, Response } from "express";
-import { findTvShow } from "../services/tvShow.service";
+import { findEpisode } from "../services/tvShow.service";
 
-export const tvShows = async (req: Request, res: Response) => {
-  const { id } = req.params;
+export const episodeTvShows = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  const { tvShowId, seasonId, episodeId } = req.params;
   try {
-    const tvShow = await findTvShow(id);
+    const episodeTvShowData = await findEpisode(tvShowId, seasonId, episodeId);
 
-    res.status(200).json({ tvShow });
+    if (!episodeTvShowData) {
+      return res.status(404).json({ error: "Episode not found" });
+    }
+
+    res.status(200).json({ episodeTvShowData });
   } catch (error) {
     console.error(error);
 
-    res.status(500).json({ error: "Failed to retrieve movies" });
+    res.status(500).json({ error: "Failed to retrieve episode" });
   }
 };

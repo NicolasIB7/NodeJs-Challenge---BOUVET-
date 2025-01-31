@@ -6,4 +6,4 @@ const requireToken_middleware_1 = require("../middlewares/requireToken.middlewar
 const tvShow_controller_1 = require("../controllers/tvShow.controller");
 const router = (0, express_1.Router)();
 exports.tvShowRouter = router;
-router.get("/tvshow/:id", requireToken_middleware_1.requireToken, tvShow_controller_1.tvShows);
+router.get("/:tvShowId/seasons/:seasonId/episodes/:episodeId", requireToken_middleware_1.requireToken, tvShow_controller_1.episodeTvShows);

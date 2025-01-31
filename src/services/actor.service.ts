@@ -16,7 +16,7 @@ export const addActor = async (data: Data) => {
       name,
       lastName,
       birthDate,
-    });PageTransitionEvent
+    });
     
 
     return newActor;

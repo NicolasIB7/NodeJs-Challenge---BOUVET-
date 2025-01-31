@@ -6,9 +6,10 @@ import { actorRouter } from "./actor.routes";
 
 export const routerAPI = (app: any) => {
   const routerV1 = express.Router();
-  app.use("/", routerV1);
+
+  app.use("/api/v1", routerV1);
   routerV1.use("", authRouter);
-  routerV1.use("", moviesRouter);
-  routerV1.use("", tvShowRouter);
-  routerV1.use("", actorRouter);
+  routerV1.use("/movies", moviesRouter);
+  routerV1.use("/tvshow", tvShowRouter);
+  routerV1.use("/actor", actorRouter);
 };

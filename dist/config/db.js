@@ -17,18 +17,17 @@ dotenv_1.default.config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 const sequelize = new sequelize_typescript_1.Sequelize({
     dialect: "postgres",
-    host: DB_HOST,
+    host: "localhost",
     username: "postgres",
     password: "admin",
     database: "postgres",
     logging: false,
     models: [Client_model_1.Client, Movie_model_1.Movie, Actor_model_1.Actor, Director_model_1.Director, TvShow_model_1.TvShow, Season_model_1.Season, Episode_model_1.Episode],
 });
-Client_model_1.Client.addHook('beforeSave', async (client) => {
-    if (client.changed('password')) {
+Client_model_1.Client.addHook("beforeSave", async (client) => {
+    if (client.changed("password")) {
         const salt = await bcryptjs_1.default.genSalt(10);
         client.password = await bcryptjs_1.default.hash(client.password, salt);
     }
 });
-// sequelize.addModels([Client, Movie, Actor, Director, TvShow, Season, Episode]);
 exports.default = sequelize;

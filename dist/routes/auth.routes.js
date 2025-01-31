@@ -4,8 +4,6 @@ exports.authRouter = void 0;
 const express_1 = require("express");
 const auth_controller_1 = require("../controllers/auth.controller");
 const validators_middleware_1 = require("../middlewares/validators.middleware");
-// import { validatorResultError } from "../middlewares/validatorResultError.middleware";
-// var jwt = require('jsonwebtoken');
 const router = (0, express_1.Router)();
 exports.authRouter = router;
 router.post("/register", validators_middleware_1.validatorRegister, async (req, res) => {

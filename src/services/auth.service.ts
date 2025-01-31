@@ -1,15 +1,11 @@
 import { generateToken, generateRefreshToken } from "../utils/generateJWT";
 import jwt, { Secret, JwtPayload } from "jsonwebtoken";
 import { Response } from "express";
-import { Sequelize } from "sequelize-typescript";
 import { Client } from "../models/Client.model";
 import db from "../config/db";
 import dotenv from "dotenv";
 dotenv.config();
 
-interface DbInstance extends Sequelize {
-  Client: typeof Client;
-}
 
 interface MyJwtPayload extends JwtPayload {
   uid: string;

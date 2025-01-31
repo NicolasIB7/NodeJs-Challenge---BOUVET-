@@ -7,8 +7,10 @@ exports.generateRefreshToken = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const JWT_SECRET = process.env.JWT_SECRET;
-const JWT_REFRESH = process.env.JWT_REFRESH;
+const JWT_SECRET = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
+// const JWT_SECRET: string | undefined = process.env.JWT_SECRET;
+const JWT_REFRESH = "eyJhbGciOiJ";
+// const JWT_REFRESH: string | undefined = process.env.JWT_REFRESH;
 const generateToken = (id) => {
     const expiresIn = 60 * 15;
     try {

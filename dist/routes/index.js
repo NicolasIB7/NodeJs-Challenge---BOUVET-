@@ -11,10 +11,10 @@ const tvShow_routes_1 = require("./tvShow.routes");
 const actor_routes_1 = require("./actor.routes");
 const routerAPI = (app) => {
     const routerV1 = express_1.default.Router();
-    app.use("/", routerV1);
+    app.use("/api/v1", routerV1);
     routerV1.use("", auth_routes_1.authRouter);
-    routerV1.use("", movies_routes_1.moviesRouter);
-    routerV1.use("", tvShow_routes_1.tvShowRouter);
-    routerV1.use("", actor_routes_1.actorRouter);
+    routerV1.use("/movies", movies_routes_1.moviesRouter);
+    routerV1.use("/tvshow", tvShow_routes_1.tvShowRouter);
+    routerV1.use("/actor", actor_routes_1.actorRouter);
 };
 exports.routerAPI = routerAPI;

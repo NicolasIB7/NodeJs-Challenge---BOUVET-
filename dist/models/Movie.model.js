@@ -68,6 +68,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Movie.prototype, "directorId", void 0);
 __decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => Director_model_1.Director),
+    __metadata("design:type", Director_model_1.Director)
+], Movie.prototype, "director", void 0);
+__decorate([
     (0, sequelize_typescript_1.BelongsToMany)(() => Actor_model_1.Actor, "MovieActors", "movieId", "actorId"),
     __metadata("design:type", Array)
 ], Movie.prototype, "actors", void 0);

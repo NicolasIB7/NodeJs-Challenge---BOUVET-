@@ -6,4 +6,4 @@ const requireToken_middleware_1 = require("../middlewares/requireToken.middlewar
 const actor_controller_1 = require("../controllers/actor.controller");
 const router = (0, express_1.Router)();
 exports.actorRouter = router;
-router.post("/actor", requireToken_middleware_1.requireToken, actor_controller_1.actor);
+router.post("/", requireToken_middleware_1.requireToken, actor_controller_1.actor);

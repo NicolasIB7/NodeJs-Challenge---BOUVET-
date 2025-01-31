@@ -55,12 +55,6 @@ export class Client extends Model<Client> {
 }
 
 
-// Client.addHook('beforeSave', async (client: Client) => {
-//   if (client.changed('password')) {
-//     const salt = await bcrypt.genSalt(10); 
-//     client.password = await bcrypt.hash(client.password, salt); 
-//   }
-// });
 
 export default Client;
 

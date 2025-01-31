@@ -1,11 +1,22 @@
 import db from "../config/db";
-import { Actor } from "../models/Actor.model";
-import { Director } from "../models/Director.model";
 
-export const findAllMovies = async () => {
+import { Op } from "sequelize";
+
+export const findAllMovies = async (filters: {
+  genre?: string;
+  sortBy?: string;
+  sortOrder?: string;
+}) => {
   try {
+    const sortBy: any =
+      filters.sortBy === "createdAt" ? "createdAt" : "createdAt";
+    const sortOrder = filters.sortOrder === "ASC" ? "ASC" : "DESC";
+
     const movies = await db.models.Movie.findAll({
-      include: [{ model: Director }, { model: Actor }],
+      where: filters.genre
+        ? { genre: { [Op.iLike]: `%${filters.genre}%` } }
+        : {},
+      order: [[sortBy, sortOrder]],
     });
 
     return movies;

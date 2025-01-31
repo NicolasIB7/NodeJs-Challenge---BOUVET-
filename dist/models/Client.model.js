@@ -76,10 +76,4 @@ __decorate([
 exports.Client = Client = __decorate([
     (0, sequelize_typescript_1.Table)({ timestamps: true })
 ], Client);
-// Client.addHook('beforeSave', async (client: Client) => {
-//   if (client.changed('password')) {
-//     const salt = await bcrypt.genSalt(10); 
-//     client.password = await bcrypt.hash(client.password, salt); 
-//   }
-// });
 exports.default = Client;
